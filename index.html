@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="城市纯玩企划互动 H5" />
+    <title>城市纯玩企划</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script defer src="./app.js"></script>
+  </head>
+  <body>
+    <div class="device-shell">
+      <main class="experience" id="experience">
+        <div class="poster" id="poster">
+          <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto" aria-label="城市纯玩企划动态头图">
+            <source src="./assets/hero-loop.mp4" type="video/mp4" />
+          </video>
+
+          <object class="poster__source" id="posterSvg" data="./assets/source-poster-v2.svg" type="image/svg+xml" aria-label="城市纯玩企划完整动态长图：从街头漫游到发呆补给站">
+            <img src="./assets/source-poster-v2.svg" alt="城市纯玩企划完整长图：从街头漫游到发呆补给站" width="1179" height="5472" />
+          </object>
+
+        </div>
+      </main>
+
+      <a class="rednote-cta" id="nextStopCta" href="https://www.rednote.com/" aria-label="下一站？随便走！前往小红书" aria-hidden="true" tabindex="-1">
+        <img src="./assets/rednote-next-stop.png" alt="下一站？随便走！" width="1053" height="212" />
+      </a>
+
+      <a class="rednote-cta" id="rednoteCta" href="https://www.rednote.com/" aria-label="累了？那就发会儿呆。前往小红书" aria-hidden="true" tabindex="-1">
+        <img src="./assets/rednote-daydream.png" alt="累了？那就发会儿呆。" width="1053" height="212" />
+      </a>
+
+      <span class="home-indicator" aria-hidden="true"></span>
+    </div>
+  </body>
+</html>

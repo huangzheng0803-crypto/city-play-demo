@@ -1,0 +1,152 @@
+:root {
+  --blue: #0968df;
+  --green: #62bd59;
+  --orange: #ff7800;
+  --ink: #121212;
+  --paper: #fff;
+  --safe-top: max(14px, env(safe-area-inset-top));
+  --safe-bottom: max(14px, env(safe-area-inset-bottom));
+  font-family: "Hannotate SC", "Kaiti SC", "STKaiti", "PingFang SC", sans-serif;
+  color: var(--ink);
+  background: #d6d6d6;
+}
+
+* { box-sizing: border-box; }
+html { height: 100%; overflow: hidden; scroll-behavior: smooth; background: #d6d6d6; }
+body {
+  min-width: 320px;
+  min-height: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  margin: 0;
+  overflow: hidden;
+  background-color: #d6d6d6;
+  background-image: url("./assets/city-street-backdrop.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+button { color: inherit; font: inherit; -webkit-tap-highlight-color: transparent; }
+
+.device-shell {
+  position: relative;
+  width: 393px;
+  height: 852px;
+  box-sizing: content-box;
+  overflow: hidden;
+  border: 9px solid #202126;
+  border-radius: 62px;
+  outline: 3px solid #55565d;
+  background: #fff;
+  box-shadow:
+    0 0 0 2px #090a0d,
+    inset 0 0 0 2px rgba(255, 255, 255, .14),
+    0 28px 70px rgba(53, 48, 39, .28),
+    0 8px 20px rgba(53, 48, 39, .16);
+}
+
+.experience {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  margin: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  background: var(--paper);
+  -webkit-overflow-scrolling: touch;
+}
+.experience::-webkit-scrollbar { display: none; }
+
+.home-indicator {
+  position: absolute;
+  z-index: 42;
+  bottom: 9px;
+  left: 50%;
+  width: 128px;
+  height: 5px;
+  border-radius: 99px;
+  background: rgba(13, 14, 16, .82);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, .28);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.poster {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  background: #fff;
+}
+.poster__source {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1179 / 5471.93;
+  overflow: hidden;
+  border: 0;
+  background: transparent;
+}
+.poster__source img { display: block; width: 100%; height: auto; }
+
+.hero-video {
+  position: absolute;
+  z-index: 1;
+  top: -2px;
+  left: -2px;
+  width: calc(100% + 4px);
+  aspect-ratio: 3 / 4;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+  background: transparent;
+  pointer-events: none;
+}
+.rednote-cta {
+  position: absolute;
+  z-index: 28;
+  left: 16px;
+  bottom: 28px;
+  width: calc(100% - 32px);
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(24px) scale(.98);
+  transform-origin: center bottom;
+  transition: opacity 220ms ease-out, transform 320ms cubic-bezier(.22,1,.36,1);
+  -webkit-tap-highlight-color: transparent;
+}
+.rednote-cta img { display: block; width: 100%; height: auto; }
+.rednote-cta.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+.rednote-cta:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; border-radius: 999px; }
+.rednote-cta:active { transform: translateY(2px) scale(.99); }
+
+@media (max-width: 520px) {
+  body { display: block; padding: 0; background: #fff; }
+  .device-shell {
+    width: 100%;
+    height: 100svh;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 0;
+    outline: 0;
+    box-shadow: none;
+  }
+  .home-indicator { display: none; }
+  .rednote-cta { bottom: var(--safe-bottom); }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+}
