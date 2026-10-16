@@ -4,6 +4,11 @@
   --orange: #ff7800;
   --ink: #121212;
   --paper: #fff;
+  --device-frame-width: min(
+    411px,
+    calc(100vw - 40px),
+    calc((100dvh - 40px) * 0.4724137931)
+  );
   --safe-top: max(14px, env(safe-area-inset-top));
   --safe-bottom: max(14px, env(safe-area-inset-bottom));
   font-family: "Hannotate SC", "Kaiti SC", "STKaiti", "PingFang SC", sans-serif;
@@ -16,10 +21,10 @@ html { height: 100%; overflow: hidden; scroll-behavior: smooth; background: #d6d
 body {
   min-width: 320px;
   min-height: 100%;
-  height: 100%;
+  height: 100dvh;
   display: grid;
   place-items: center;
-  padding: 12px;
+  padding: 20px;
   margin: 0;
   overflow: hidden;
   background-color: #d6d6d6;
@@ -32,13 +37,14 @@ button { color: inherit; font: inherit; -webkit-tap-highlight-color: transparent
 
 .device-shell {
   position: relative;
-  width: 393px;
-  height: 852px;
-  box-sizing: content-box;
+  width: var(--device-frame-width);
+  height: auto;
+  aspect-ratio: 411 / 870;
+  box-sizing: border-box;
   overflow: hidden;
-  border: 9px solid #202126;
-  border-radius: 62px;
-  outline: 3px solid #55565d;
+  border: clamp(6px, calc(var(--device-frame-width) * .0219), 9px) solid #202126;
+  border-radius: clamp(40px, calc(var(--device-frame-width) * .1509), 62px);
+  outline: clamp(2px, calc(var(--device-frame-width) * .0073), 3px) solid #55565d;
   background: #fff;
   box-shadow:
     0 0 0 2px #090a0d,
@@ -66,10 +72,10 @@ button { color: inherit; font: inherit; -webkit-tap-highlight-color: transparent
 .home-indicator {
   position: absolute;
   z-index: 42;
-  bottom: 9px;
+  bottom: clamp(6px, calc(var(--device-frame-width) * .0219), 9px);
   left: 50%;
-  width: 128px;
-  height: 5px;
+  width: 31.14%;
+  height: clamp(3px, calc(var(--device-frame-width) * .0122), 5px);
   border-radius: 99px;
   background: rgba(13, 14, 16, .82);
   box-shadow: 0 1px 0 rgba(255, 255, 255, .28);
